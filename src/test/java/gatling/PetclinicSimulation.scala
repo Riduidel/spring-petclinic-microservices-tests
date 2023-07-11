@@ -18,7 +18,7 @@ class PetclinicSimulation extends Simulation {
 	val create_pets = scenario("create_pets").exec(karateFeature("classpath:karate/create/pets.feature"))
 	
 	setUp(
-		get_vets.inject(rampUsers(100) during (5 seconds)).protocols(protocol),
+		get_vets.inject(rampUsers(1000) during (10 seconds)).protocols(protocol),
 		get_customers.inject(rampUsers(1000) during (5 seconds)).protocols(protocol),
 		create_customers.inject(rampUsers(100) during (5 seconds)).protocols(protocol),
 		create_pets.inject(rampUsers(1000) during (5 seconds)).protocols(protocol),
